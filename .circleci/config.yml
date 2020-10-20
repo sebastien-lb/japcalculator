@@ -1,0 +1,19 @@
+version: 2.1
+
+jobs:
+  test:
+    docker:
+      - image: node:12
+    steps:
+      - checkout
+      - run:
+          command: yarn
+          name: Install dependencies
+      - run:
+          command: yarn run test
+          name: Run YARN tests
+
+workflows:
+  test_app:
+    jobs:
+      - test
