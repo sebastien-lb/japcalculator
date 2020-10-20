@@ -12,8 +12,9 @@ jobs:
       - run:
           command: yarn run test
           name: Run YARN tests
-
+          
 workflows:
   test_app:
     jobs:
       - test
+
