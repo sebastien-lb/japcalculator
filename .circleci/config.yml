@@ -18,6 +18,9 @@ jobs:
     steps:
       - checkout
       - run:
+          command: yarn
+          name: Install dependencies
+      - run:
           command: yarn run lint
           name: "Check the lint"
           
