@@ -12,7 +12,7 @@ export const theme: CustomTheme = createMuiTheme({
     MuiButton: {
       root: {
         background:
-          "transparent linear-gradient(101deg, #F78E0D 0%, #F9C41C 100%) 0% 0% no-repeat padding-box"
+          "transparent linear-gradient(101deg, #F78E0D 0%, #C02424 100%) 0% 0% no-repeat padding-box"
       },
       contained: {
         color: "white",
