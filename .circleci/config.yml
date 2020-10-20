@@ -19,11 +19,7 @@ jobs:
       - checkout
       - run:
           command: yarn audit
-          name: Verify packages
-      - run:
-          command: npx yarn-audit-fix
-          name: Fix dependencies vulnerabilities
-
+          name: Verify dependencies
 workflows:
   test_app:
     jobs:
