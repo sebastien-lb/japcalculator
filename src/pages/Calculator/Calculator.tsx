@@ -15,6 +15,7 @@ import { FoodTile } from "../../components";
 
 type ClassNames =
   | "container"
+  | "kcalDisplay"
   | "circleContainer"
   | "redCircle"
   | "kanjiSun"
@@ -76,7 +77,7 @@ export const CalculatorPage: React.FC<Props> = (props: Props) => {
             </div>
           </div>
           <div className={classes.buttonContainer}>
-            <Button variant="contained">{result} Kcal</Button>
+            <Button variant="contained" className={classes.kcalDisplay}>{result} Kcal</Button>
           </div>
         </div>
         <div className={classes.lateralBar}>
@@ -191,6 +192,10 @@ const styles = (theme: CustomTheme): Record<ClassNames, CSSProperties> => ({
     width: 0,
     border: "1px solid black",
     margin: 10
+  },
+  kcalDisplay: {
+    minWidth: 300,
+    fontSize: 40,
   }
 });
 
