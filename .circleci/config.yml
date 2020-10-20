@@ -1,0 +1,20 @@
+orbs:
+    node: circleci/node@4.0.0
+  
+  version: 2.1
+  jobs:
+    build:
+      steps: 
+        - run: echo "this is the build job"
+  jobs:
+    test:
+      steps: 
+        - run: echo "this is the test job"
+  
+  workflows:
+    build:
+      jobs:
+        - node/build
+    test:
+      jobs:
+        - node/test
