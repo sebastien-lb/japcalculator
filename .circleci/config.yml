@@ -12,16 +12,9 @@ jobs:
       - run:
           command: yarn run test
           name: Run YARN tests
-  secure:
-    docker:
-      - image: node:12
-    steps:
-      - checkout
-      - run:
-          command: yarn audit
-          name: Verify dependencies
+          
 workflows:
   test_app:
     jobs:
       - test
-      - secure
+
