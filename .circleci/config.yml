@@ -1,22 +1,19 @@
-orbs:
-  node: circleci/node@4.0.0
-
 version: 2.1
 
 jobs:
   test:
-    executor:
-      name: node/default
-      tag: '13'
+    docker:
+      - image: node:12
     steps:
       - checkout
-      - node/install-packages:
-          pkg-manager: yarn
+      - run:
+          command: yarn
+          name: Install dependencies
       - run:
           command: yarn run test
           name: Run YARN tests
 
 workflows:
-  test:
+  test_app:
     jobs:
       - test
