@@ -39,7 +39,7 @@ export const FOOD_ITEMS: Array<FoodItem> = [
     imageUrl: Miso
   },
   {
-    name: "Viande",
+    name: "Boulettes de poulet",
     kcal: 130,
     imageUrl: Meat
   }
