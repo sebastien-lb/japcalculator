@@ -1,0 +1,48 @@
+defaults: &defaults
+  working_directory: ~
+  docker:
+    - image: circleci/node:12.0.0-browsers
+
+version: 2.1
+jobs:
+  build:
+    <<: *defaults
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - npm-{{ checksum "yarn-lock.json" }}
+      - run:
+          name: Install Frontend Dependencies
+          command: yarn
+      - save_cache:
+          key: npm-{{ checksum "yarn-lock.json" }}
+          paths:
+            - node_modules
+      - persist_to_workspace:
+          root: /home/circleci
+          paths:
+            - project
+  audit:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: /home/circleci
+      - run: yarn audit
+  tests:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: /home/circleci
+      - run: yarn test
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - audit:
+          requires:
+            - build
+      - tests:
+          requires:
+            - build
