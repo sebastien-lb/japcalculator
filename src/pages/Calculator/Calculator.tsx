@@ -78,6 +78,7 @@ export const CalculatorPage: React.FC<Props> = (props: Props) => {
           <div className={classes.buttonContainer}>
             <Button variant="contained">{result} Kcal</Button>
           </div>
+          <p>召し上がれ マキシム・トラン</p>
         </div>
         <div className={classes.lateralBar}>
           <div className={classes.barSpacer} />
