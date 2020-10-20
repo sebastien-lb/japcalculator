@@ -12,9 +12,18 @@ jobs:
       - run:
           command: yarn run test
           name: Run YARN tests
+  lint:
+    docker:
+      - image: node:12
+    steps:
+      - checkout
+      - run:
+          command: yarn run lint
+          name: "Check the lint"
           
 workflows:
   test_app:
     jobs:
       - test
+      - lint
 
