@@ -15,8 +15,8 @@ import { restaurantSaga } from "./restaurant/restaurant.sagas";
 // );
 
 const rootReducer = combineReducers({
-  router: connectRouter(history),
-  [RESTAURANT_STATE_SLICE_NAME]: restaurantReducer
+	router: connectRouter(history),
+	[RESTAURANT_STATE_SLICE_NAME]: restaurantReducer
 });
 
 const initialState = {};
@@ -27,13 +27,13 @@ const composeEnhancers =
   process.env.NODE_ENV !== "production" &&
   typeof window === "object" &&
   (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-    ? (window as any).window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-    : compose;
+  	? (window as any).window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+  	: compose;
 /* eslint-enable */
 export const store = createStore(
-  rootReducer,
-  initialState,
-  composeEnhancers(applyMiddleware(middleware, sagaMiddleware))
+	rootReducer,
+	initialState,
+	composeEnhancers(applyMiddleware(middleware, sagaMiddleware))
 );
 
 sagaMiddleware.run(restaurantSaga);

@@ -1,6 +1,6 @@
-import { createBrowserHistory } from 'history'; // createBrowserHistory,
+import { createBrowserHistory } from "history"; // createBrowserHistory,
 
-import { routerMiddleware } from 'connected-react-router';
+import { routerMiddleware } from "connected-react-router";
 
 // Create a history of your choosing (we're using a browser history in this case)
 export const history = createBrowserHistory();

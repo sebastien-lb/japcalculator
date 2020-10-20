@@ -20,47 +20,47 @@ interface OwnProps {
 type Props = OwnProps;
 
 export const RestaurantCard: React.FC<Props> = (props: Props) => {
-  const { classes, imgSrc, restaurantName, address } = props;
-  return (
-    <Card className={classes.container}>
-      <CardActionArea>
-        <CardMedia
-          image={imgSrc}
-          title="Japanese Restaurant"
-          className={classes.picture}
-        />
-        <CardContent>
-          <Typography
-            gutterBottom
-            variant="h6"
-            component="h2"
-            className={classes.restaurantName}
-          >
-            {restaurantName}
-          </Typography>
-          <Typography variant="body2" className={classes.address}>
-            {address}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
-  );
+	const { classes, imgSrc, restaurantName, address } = props;
+	return (
+		<Card className={classes.container}>
+			<CardActionArea>
+				<CardMedia
+					image={imgSrc}
+					title="Japanese Restaurant"
+					className={classes.picture}
+				/>
+				<CardContent>
+					<Typography
+						gutterBottom
+						variant="h6"
+						component="h2"
+						className={classes.restaurantName}
+					>
+						{restaurantName}
+					</Typography>
+					<Typography variant="body2" className={classes.address}>
+						{address}
+					</Typography>
+				</CardContent>
+			</CardActionArea>
+		</Card>
+	);
 };
 
 const styles = (theme: CustomTheme): Record<ClassNames, CSSProperties> => ({
-  container: {
-    width: 220,
-    textAlign: "left"
-  },
-  picture: {
-    height: 128
-  },
-  restaurantName: {
-    fontSize: 15
-  },
-  address: {
-    fontSize: 10
-  }
+	container: {
+		width: 220,
+		textAlign: "left"
+	},
+	picture: {
+		height: 128
+	},
+	restaurantName: {
+		fontSize: 15
+	},
+	address: {
+		fontSize: 10
+	}
 });
 
 export default withStyles(styles)(RestaurantCard);

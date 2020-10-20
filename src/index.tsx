@@ -11,14 +11,14 @@ import { history } from "./redux/Router/router";
 import { theme } from "./style/theme";
 
 ReactDOM.render(
-  <Provider store={store}>
-    <ConnectedRouter history={history}>
-      <ThemeProvider theme={theme}>
-        <App />
-      </ThemeProvider>
-    </ConnectedRouter>
-  </Provider>,
-  document.getElementById("root")
+	<Provider store={store}>
+		<ConnectedRouter history={history}>
+			<ThemeProvider theme={theme}>
+				<App />
+			</ThemeProvider>
+		</ConnectedRouter>
+	</Provider>,
+	document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change

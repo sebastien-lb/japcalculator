@@ -19,10 +19,10 @@ import { store } from "./redux/config";
 // });
 
 test("renders App", () => {
-  const { baseElement } = render(
-    <Provider store={store}>
-      <App />
-    </Provider>
-  );
-  expect(baseElement).toBeDefined();
+	const { baseElement } = render(
+		<Provider store={store}>
+			<App />
+		</Provider>
+	);
+	expect(baseElement).toBeDefined();
 });

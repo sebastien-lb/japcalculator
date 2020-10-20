@@ -15,30 +15,30 @@ interface OwnProps {
 type Props = OwnProps;
 
 export const SearchBar: React.FC<Props> = (props: Props) => {
-  const { classes } = props;
-  return (
-    <div className={classes.container}>
-      <img src={MjpSearch} alt="search" className={classes.logoSearch} />
-      <InputBase
-        className={classes.input}
-        placeholder="Where do you want to eat ? "
-      />
-    </div>
-  );
+	const { classes } = props;
+	return (
+		<div className={classes.container}>
+			<img src={MjpSearch} alt="search" className={classes.logoSearch} />
+			<InputBase
+				className={classes.input}
+				placeholder="Where do you want to eat ? "
+			/>
+		</div>
+	);
 };
 
 const styles = (theme: CustomTheme): Record<ClassNames, CSSProperties> => ({
-  container: {
-    display: "flex",
-    marginBottom: theme.spacing(2)
-  },
-  logoSearch: {
-    width: 45
-  },
-  input: {
-    width: "100%",
-    fontSize: 32
-  }
+	container: {
+		display: "flex",
+		marginBottom: theme.spacing(2)
+	},
+	logoSearch: {
+		width: 45
+	},
+	input: {
+		width: "100%",
+		fontSize: 32
+	}
 });
 
 export default withStyles(styles)(SearchBar);
