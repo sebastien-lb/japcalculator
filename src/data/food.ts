@@ -14,7 +14,7 @@ export interface FoodItem {
 // values from: http://dieteplaisir.canalblog.com/archives/2012/05/18/24268064.html
 export const FOOD_ITEMS: Array<FoodItem> = [
   {
-    name: "Sushiiii",
+    name: "Mega Sushi",
     kcal: 45,
     imageUrl: Sushi
   },
