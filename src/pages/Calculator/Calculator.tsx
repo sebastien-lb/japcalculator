@@ -76,7 +76,10 @@ export const CalculatorPage: React.FC<Props> = (props: Props) => {
             </div>
           </div>
           <div className={classes.buttonContainer}>
-            <Button variant="contained">{result} Kcal</Button>
+            <Button variant="contained">Manger les {result} Kcal</Button>
+          </div>
+          <div className={classes.buttonContainer}>
+            <Button variant="contained">Prendre une double portion : {2*result} Kcal</Button>
           </div>
         </div>
         <div className={classes.lateralBar}>
@@ -89,7 +92,7 @@ export const CalculatorPage: React.FC<Props> = (props: Props) => {
       </div>
       <img className={classes.kanjiSun} src={kanjiSun} alt="kanji sun" />
       <img className={classes.kanjiBook} src={kanjiBook} alt="kanji book" />
-    </div>
+    </div >
   );
 };
 
