@@ -149,7 +149,7 @@ const styles = (theme: CustomTheme): Record<ClassNames, CSSProperties> => ({
     maxWidth: "80%",
     margin: "auto",
     zIndex: 300,
-    background: "white",
+    background: "red",
     borderRadius: 40,
     boxShadow: "0px 6px 30px #00000033",
     padding: 20,
