@@ -196,6 +196,7 @@ const styles = (theme: CustomTheme): Record<ClassNames, CSSProperties> => ({
   kcalDisplay: {
     minWidth: 300,
     fontSize: 40,
+    color: "black",
   }
 });
 
