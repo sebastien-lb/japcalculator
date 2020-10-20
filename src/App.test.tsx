@@ -24,5 +24,6 @@ test("renders App", () => {
       <App />
     </Provider>
   );
+  expect(baseElement).toBeFalsy;
   expect(baseElement).toBeDefined();
 });
