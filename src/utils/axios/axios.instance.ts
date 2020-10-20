@@ -12,35 +12,35 @@ export class CustomAxiosInstance {
   private static token?: string = undefined;
   private static axiosInstance: AxiosInstance;
   public static getInstance = (token?: string): AxiosInstance => {
-    if (token === undefined) {
-      return axios.create({
-        baseURL: API_BASE_URL,
-        timeout: 60000
-      });
-    }
-    if (CustomAxiosInstance.token === token) {
-      return CustomAxiosInstance.axiosInstance;
-    } else if (token === "") {
-      CustomAxiosInstance.axiosInstance = axios.create({
-        baseURL: API_BASE_URL,
-        timeout: 60000
-      });
-      return CustomAxiosInstance.axiosInstance;
-    } else {
-      CustomAxiosInstance.axiosInstance = axios.create({
-        baseURL: API_BASE_URL,
-        timeout: 60000,
-        headers: { Authorization: "Token " + token }
-      });
-      return CustomAxiosInstance.axiosInstance;
-    }
+  	if (token === undefined) {
+  		return axios.create({
+  			baseURL: API_BASE_URL,
+  			timeout: 60000
+  		});
+  	}
+  	if (CustomAxiosInstance.token === token) {
+  		return CustomAxiosInstance.axiosInstance;
+  	} else if (token === "") {
+  		CustomAxiosInstance.axiosInstance = axios.create({
+  			baseURL: API_BASE_URL,
+  			timeout: 60000
+  		});
+  		return CustomAxiosInstance.axiosInstance;
+  	} else {
+  		CustomAxiosInstance.axiosInstance = axios.create({
+  			baseURL: API_BASE_URL,
+  			timeout: 60000,
+  			headers: { Authorization: "Token " + token }
+  		});
+  		return CustomAxiosInstance.axiosInstance;
+  	}
   };
 
   public static removeBaseUrlFromUrl(url: string): string {
-    if (url) {
-      const urlWithoutBase = url.replace(API_BASE_URL_UNSECURE, "");
-      return urlWithoutBase;
-    }
-    return "";
+  	if (url) {
+  		const urlWithoutBase = url.replace(API_BASE_URL_UNSECURE, "");
+  		return urlWithoutBase;
+  	}
+  	return "";
   }
 }

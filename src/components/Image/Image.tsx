@@ -14,18 +14,18 @@ interface OwnProps {
 type Props = OwnProps;
 
 export const Image: React.FC<Props> = (props: Props) => {
-  const { classes } = props;
-  return <div className={classes.container}></div>;
+	const { classes } = props;
+	return <div className={classes.container}></div>;
 };
 
 const styles = (theme: CustomTheme): Record<ClassNames, any> => ({
-  container: (props: Props) => ({
-    background: `url(${props.imgUrl})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    height: props.height,
-    width: props.width
-  })
+	container: (props: Props) => ({
+		background: `url(${props.imgUrl})`,
+		backgroundSize: "cover",
+		backgroundPosition: "center",
+		height: props.height,
+		width: props.width
+	})
 });
 
 export default withStyles(styles)(Image);
