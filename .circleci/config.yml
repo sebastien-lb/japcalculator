@@ -4,4 +4,4 @@ orbs:
 workflows:
   welcome:
     jobs:
-      -
+      - welcome/run

@@ -80,6 +80,7 @@ const styles = (theme: CustomTheme): Record<ClassNames, CSSProperties> => ({
   },
   name: {
     color: "black",
+    fontFamily: "Arial Narrow, sans-serif",
     fontWeight: "bold"
   },
   controls: {
