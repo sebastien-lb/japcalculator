@@ -69,7 +69,7 @@ const styles = (theme: CustomTheme): Record<ClassNames, CSSProperties> => ({
   container: {
     display: "flex",
     alignItems: "center",
-    flexDirection: "column",
+    flexDirection: "row",
     width: 200
   },
   nameContainer: {
@@ -90,7 +90,7 @@ const styles = (theme: CustomTheme): Record<ClassNames, CSSProperties> => ({
     }
   },
   button: {
-    color: "grey"
+    color: "red"
   },
   image: {
     height: 100
