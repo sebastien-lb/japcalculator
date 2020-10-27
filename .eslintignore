@@ -1,0 +1,7 @@
+src/components/index.ts
+src/pages/index.ts
+src/redux/config.ts
+src/redux/state.ts
+src/style/constants.ts
+src/style/theme.ts
+src/serviceWorker.ts
