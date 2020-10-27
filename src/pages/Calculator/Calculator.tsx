@@ -13,6 +13,8 @@ import kanjiLeft from "../../assets/kanji/Kanji-left.svg";
 import { FOOD_ITEMS, FoodItem } from "../../data/food";
 import { FoodTile } from "../../components";
 
+import { sendData } from "../../utils/send-data";
+
 type ClassNames =
   | "container"
   | "circleContainer"
@@ -45,7 +47,7 @@ export const CalculatorPage: React.FC<Props> = (props: Props) => {
   ) => {
     setValues({
       ...values,
-      [itemName]: { value, kcal: value * itemKcal }
+      [itemName]: { value, kcal: value * itemKcal },
     });
   };
 
@@ -76,7 +78,9 @@ export const CalculatorPage: React.FC<Props> = (props: Props) => {
             </div>
           </div>
           <div className={classes.buttonContainer}>
-            <Button variant="contained">{result} Kcal</Button>
+            <Button variant="contained" onClick={sendData(result)}>
+              {result} Kcal
+            </Button>
           </div>
         </div>
         <div className={classes.lateralBar}>
@@ -98,7 +102,7 @@ const styles = (theme: CustomTheme): Record<ClassNames, CSSProperties> => ({
     position: "relative",
     height: "100vh",
     width: "100vw",
-    overflow: "hidden"
+    overflow: "hidden",
   },
   circleContainer: {
     position: "absolute",
@@ -109,13 +113,13 @@ const styles = (theme: CustomTheme): Record<ClassNames, CSSProperties> => ({
     width: "fit-content",
     marginLeft: "auto",
     marginRight: "auto",
-    zIndex: 200
+    zIndex: 200,
   },
   redCircle: {
     height: "calc(100vh - 40px)",
     width: "calc(100vh - 40px)",
     borderRadius: "50%",
-    backgroundColor: "#BF2424"
+    backgroundColor: "#BF2424",
   },
   kanjiSun: {
     position: "absolute",
@@ -125,7 +129,7 @@ const styles = (theme: CustomTheme): Record<ClassNames, CSSProperties> => ({
     marginTop: "auto",
     marginBottom: "auto",
     height: "85%",
-    zIndex: 100
+    zIndex: 100,
   },
   kanjiBook: {
     position: "absolute",
@@ -135,7 +139,7 @@ const styles = (theme: CustomTheme): Record<ClassNames, CSSProperties> => ({
     marginTop: "auto",
     marginBottom: "auto",
     height: "85%",
-    zIndex: 100
+    zIndex: 100,
   },
   calculatorContainer: {
     position: "absolute",
@@ -153,25 +157,25 @@ const styles = (theme: CustomTheme): Record<ClassNames, CSSProperties> => ({
     borderRadius: 40,
     boxShadow: "0px 6px 30px #00000033",
     padding: 20,
-    display: "flex"
+    display: "flex",
   },
   calculatorInnerContainer: {
     display: "flex",
     flexDirection: "column",
-    maxWidth: "calc(100% - 64px)"
+    maxWidth: "calc(100% - 64px)",
   },
   scrollContainer: {
-    overflowY: "auto"
+    overflowY: "auto",
   },
   mainFoodItems: {
     display: "flex",
     flexWrap: "wrap",
-    justifyContent: "space-evenly"
+    justifyContent: "space-evenly",
   },
   itemContainer: {
     display: "flex",
     alignItems: "flex-end",
-    margin: theme.spacing(5)
+    margin: theme.spacing(5),
   },
   buttonContainer: {
     display: "flex",
@@ -179,19 +183,19 @@ const styles = (theme: CustomTheme): Record<ClassNames, CSSProperties> => ({
     minHeight: 36,
     flex: 1,
     marginBottom: theme.spacing(3),
-    marginTop: theme.spacing(3)
+    marginTop: theme.spacing(3),
   },
   lateralBar: {
     display: "flex",
     flexDirection: "column",
-    alignItems: "center"
+    alignItems: "center",
   },
   barSpacer: {
     flex: 1,
     width: 0,
     border: "1px solid black",
-    margin: 10
-  }
+    margin: 10,
+  },
 });
 
 export default withStyles(styles)(CalculatorPage);
