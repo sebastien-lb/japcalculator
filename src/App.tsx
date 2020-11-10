@@ -5,7 +5,7 @@ import { CalculatorPage } from "./pages";
 const App = () => {
   return (
     <div className="App">
-      <h1>Nouvelle branche</h1>
+      <h1>Nouvelle branch</h1>
       <CalculatorPage />
     </div>
   );
