@@ -6,7 +6,7 @@ const client = new faunadb.Client({
   secret: process.env.FAUNADB_SERVER_SECRET,
 });
 
-exports.handler = async function(event, context) {
+exports.handler = async function (event, context) {
   const data = JSON.parse(event.body);
   console.log("Function `todo-create` invoked", data);
   const todoItem = {
@@ -14,7 +14,7 @@ exports.handler = async function(event, context) {
   };
   /* construct the fauna query */
   return client
-    .query(q.Create(q.Ref("classes/todos"), todoItem))
+    .query(q.Create(q.Ref("classes/pirates"), todoItem))
     .then((response) => {
       console.log("success", response);
       /* Success! return the response with statusCode 200 */
