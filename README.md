@@ -2,6 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 
 [![CircleCI](https://circleci.com/gh/NouamaneTazi/japcalculator/tree/master.svg?style=svg)](https://circleci.com/gh/NouamaneTazi/japcalculator/tree/master)
+
 ## Available Scripts
 
 In the project directory, you can run:
