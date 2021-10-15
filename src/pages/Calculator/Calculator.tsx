@@ -38,17 +38,27 @@ type Props = OwnProps;
 export const CalculatorPage: React.FC<Props> = (props: Props) => {
   const { classes } = props;
 
-  const [values, setValues] = useState<
-    { [k in string]: { value: number; kcal: number } }
-  >({});
+  const [values, setValues] = useState<{
+    [k in string]: { value: number; kcal: number };
+  }>({});
 
-  const handleChange = (itemName: string, itemKcal: number) => (
-    value: number
-  ) => {
-    setValues({
-      ...values,
-      [itemName]: { value, kcal: value * itemKcal },
-    });
+  const handleChange =
+    (itemName: string, itemKcal: number) => (value: number) => {
+      setValues({
+        ...values,
+        [itemName]: { value, kcal: value * itemKcal },
+      });
+    };
+
+  const handleReset = () => {
+    setValues((previousValues) =>
+      Object.assign(
+        {},
+        ...Object.keys(previousValues).map((itemName) => ({
+          [itemName]: { value: 0, kcal: 0 },
+        }))
+      )
+    );
   };
 
   const result = Object.keys(values).reduce((acc: number, itemName: string) => {
@@ -78,8 +88,11 @@ export const CalculatorPage: React.FC<Props> = (props: Props) => {
             </div>
           </div>
           <div className={classes.buttonContainer}>
-            <Button variant="contained" onClick={sendData(result)}>
+            <Button variant="contained" onClick={sendData(result)} style={{ marginRight: 10 }}>
               {result} Kcal
+            </Button>
+            <Button variant="contained" onClick={handleReset}>
+              Remettre à zéro
             </Button>
           </div>
         </div>
