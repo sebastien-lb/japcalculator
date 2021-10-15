@@ -1,6 +1,6 @@
 version: 2.1
 jobs:
-  build-test:
+  - build-test:
     docker:
       # specify the version you desire here
       - image: circleci/node:12
@@ -27,7 +27,7 @@ jobs:
       - run: yarn test
       - run: yarn build
 
-  audit-test:
+  - audit-test:
         docker:
       # specify the version you desire here
       - image: circleci/node:12
