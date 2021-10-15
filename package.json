@@ -16,6 +16,7 @@
     "axios": "^0.19.2",
     "connected-react-router": "^6.8.0",
     "encoding": "^0.1.13",
+    "eslint-plugin-react": "^7.26.1",
     "faunadb": "^3.0.1",
     "history": "^4.10.1",
     "netlify-lambda": "^2.0.1",
