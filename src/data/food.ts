@@ -4,6 +4,8 @@ import Maki from "../assets/images/food/Maki.svg";
 import Sushi from "../assets/images/food/Sushi.svg";
 import California from "../assets/images/food/California.svg";
 import BeefCheese from "../assets/images/food/Brochette boeuf fro.svg";
+import Sumo from "../assets/images/food/sumo.png";
+
 
 export interface FoodItem {
   name: string;
@@ -42,5 +44,10 @@ export const FOOD_ITEMS: Array<FoodItem> = [
     name: "牛肉",
     kcal: 130,
     imageUrl: Meat
+  },
+  {
+    name: "相撲",
+    kcal: 200000,
+    imageUrl: Sumo
   }
 ];
