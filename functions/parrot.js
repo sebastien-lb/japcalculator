@@ -1,4 +1,12 @@
 exports.handler = async function(event, context) {
+  
+  if (!event.body) {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({ message: "No Body found" }),
+    };
+  }
+
   const requestBody = JSON.parse(event.body);
   const message = requestBody.message;
 
