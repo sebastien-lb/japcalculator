@@ -79,7 +79,7 @@ export const CalculatorPage: React.FC<Props> = (props: Props) => {
           </div>
           <div className={classes.buttonContainer}>
             <Button variant="contained" onClick={sendData(result)}>
-              {result} Kcal
+              {result} Kcal 
             </Button>
           </div>
         </div>
@@ -98,6 +98,7 @@ export const CalculatorPage: React.FC<Props> = (props: Props) => {
 };
 
 const styles = (theme: CustomTheme): Record<ClassNames, CSSProperties> => ({
+  
   container: {
     position: "relative",
     height: "100vh",
