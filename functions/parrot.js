@@ -2,14 +2,15 @@ exports.handler = async function(event, context) {
   
   console.log(event);
 
-  if (event.body == null) {
+  try {
+    const requestBody = JSON.parse(event.body);
+  } catch {
     return {
       statusCode: 400,
       body: JSON.stringify({ message: "No Body found" }),
     };
   }
 
-  const requestBody = JSON.parse(event.body);
   const message = requestBody.message;
 
   if (event.httpMethod === "OPTIONS") {
