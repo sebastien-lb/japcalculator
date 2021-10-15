@@ -95,6 +95,8 @@ export const CalculatorPage: React.FC<Props> = (props: Props) => {
               Remettre à zéro
             </Button>
           </div>
+          <div className={classes.buttonContainer}>
+            <button onClick={() => { throw new Error() }}>Break the world</button></div>
         </div>
         <div className={classes.lateralBar}>
           <div className={classes.barSpacer} />
