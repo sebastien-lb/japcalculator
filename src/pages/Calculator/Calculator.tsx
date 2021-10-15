@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import { CSSProperties } from "@material-ui/styles";
 import { CustomTheme } from "../../style/theme";
-import { Button } from "@material-ui/core";
+import { Button, styled } from "@material-ui/core";
 
 import kanjiSun from "../../assets/kanji/Kanji sun.svg";
 import kanjiBook from "../../assets/kanji/Kanji book.svg";
@@ -15,6 +15,16 @@ import { FoodTile } from "../../components";
 
 import { sendData } from "../../utils/send-data";
 
+const DisplayButton = styled(Button)({
+  '&:disabled': {
+    color: "black"
+  }
+});
+
+const TextButton = styled(Button)({
+  background: "white"
+});
+
 type ClassNames =
   | "container"
   | "circleContainer"
@@ -26,6 +36,7 @@ type ClassNames =
   | "scrollContainer"
   | "mainFoodItems"
   | "itemContainer"
+  | "buttonsContainer"
   | "buttonContainer"
   | "lateralBar"
   | "barSpacer";
@@ -50,6 +61,15 @@ export const CalculatorPage: React.FC<Props> = (props: Props) => {
       [itemName]: { value, kcal: value * itemKcal },
     });
   };
+
+  const resetKcals = () => {
+    var new_values: {[x:string]: {value: number, kcal: number}} = {}
+    for(let key in values) {
+      new_values[key] = {value: 0, kcal: 0};
+    }
+    setValues(new_values);
+    return undefined
+  }
 
   const result = Object.keys(values).reduce((acc: number, itemName: string) => {
     return acc + values[itemName].kcal;
@@ -77,10 +97,17 @@ export const CalculatorPage: React.FC<Props> = (props: Props) => {
               ))}
             </div>
           </div>
-          <div className={classes.buttonContainer}>
-            <Button variant="contained" onClick={sendData(result)}>
-              {result} Kcal
-            </Button>
+          <div className={classes.buttonsContainer}>
+            <div className={classes.buttonContainer}>
+              <DisplayButton variant="contained" disabled={true} onClick={sendData(result)}>
+                {result} Kcal
+              </DisplayButton>
+            </div>
+            <div className={classes.buttonContainer}>
+              <TextButton variant="text" onClick={() => {resetKcals();}}>
+                Reset
+              </TextButton>
+            </div>
           </div>
         </div>
         <div className={classes.lateralBar}>
@@ -177,13 +204,19 @@ const styles = (theme: CustomTheme): Record<ClassNames, CSSProperties> => ({
     alignItems: "flex-end",
     margin: theme.spacing(5),
   },
+  buttonsContainer: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    flex: 1,
+    marginTop: theme.spacing(3),
+  },
   buttonContainer: {
     display: "flex",
     justifyContent: "center",
     minHeight: 36,
     flex: 1,
-    marginBottom: theme.spacing(3),
-    marginTop: theme.spacing(3),
+    marginBottom: theme.spacing(1),
   },
   lateralBar: {
     display: "flex",
