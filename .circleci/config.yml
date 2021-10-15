@@ -25,6 +25,9 @@ jobs:
 
       # run tests!
       - run: yarn test
+      - run:
+          name: run-audit-ci
+          command: npx audit-ci --moderate
       - run: yarn build
 
 workflows:
