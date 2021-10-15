@@ -1,4 +1,5 @@
-import React, { ChangeEvent } from "react";
+import React from "react";
+// import { ChangeEvent } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import { CSSProperties } from "@material-ui/styles";
 
@@ -35,9 +36,9 @@ export const FoodTile: React.FC<Props> = (props: Props) => {
     }
   };
 
-  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-    handleChange(Number(event.target.value))();
-  };
+  // const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+  //   handleChange(Number(event.target.value))();
+  // };
 
   return (
     <div className={classes.container}>
@@ -50,12 +51,15 @@ export const FoodTile: React.FC<Props> = (props: Props) => {
             -
           </span>
           {/* <span className={classes.value}>{value || 0}</span> */}
-          <input
+          <span className={classes.value}>
+            {value}
+          </span>
+          {/* <input
             value={value}
             onChange={handleInputChange}
             type="number"
             className={classes.input}
-          />
+          /> */}
           <span className={classes.button} onClick={handleChange(value + 1)}>
             +
           </span>
@@ -90,7 +94,8 @@ const styles = (theme: CustomTheme): Record<ClassNames, CSSProperties> => ({
     }
   },
   button: {
-    color: "grey"
+    color: "grey",
+    cursor: "pointer"
   },
   image: {
     height: 100
