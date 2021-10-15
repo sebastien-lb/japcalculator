@@ -70,42 +70,45 @@ const styles = (theme: CustomTheme): Record<ClassNames, CSSProperties> => ({
     display: "flex",
     alignItems: "center",
     flexDirection: "column",
-    width: 200
+    width: 200,
   },
   nameContainer: {
     display: "flex",
     justifyContent: "space-between",
     paddingTop: theme.spacing(1),
-    width: "100%"
+    width: "100%",
   },
   name: {
     color: "black",
-    fontWeight: "bold"
+    fontWeight: "bold",
   },
   controls: {
     display: "flex",
     alignItems: "center",
     "& > svg": {
-      color: "grey"
-    }
+      color: "grey",
+    },
   },
   button: {
-    color: "grey"
+    color: "grey",
+    "&:hover": {
+      cursor: "pointer",
+    },
   },
   image: {
-    height: 100
+    height: 100,
   },
   input: {
     border: "none",
     outline: "none",
     mozAppearance: "textfield",
     width: 30,
-    textAlign: "center"
+    textAlign: "center",
   },
   value: {
     marginLeft: theme.spacing(0.5),
-    marginRight: theme.spacing(0.5)
-  }
+    marginRight: theme.spacing(0.5),
+  },
 });
 
 export default withStyles(styles)(FoodTile);
