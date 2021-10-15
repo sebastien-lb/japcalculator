@@ -26,8 +26,29 @@ jobs:
       # run tests!
       - run: yarn test
       - run: yarn build
+  security-audit:
+    docker:
+      - image: circleci/node:12
+    steps:
+      -checkout
+
+      - restore_cache:
+        keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          - v1-dependencies-
+      
+      - run: curl -o- -L https://yarnpkg.com/install.sh | bash
+      - run: yarn install
+
+      - save_cache:
+        paths:
+          - node_modules
+        key: v1-dependencies-{{ checksum "package.json" }}
+      
+      - run: yarn audit
 
 workflows:
   node-tests:
     jobs:
       - build-test
+      - security-audit
