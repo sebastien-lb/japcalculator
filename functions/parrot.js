@@ -1,6 +1,6 @@
 exports.handler = async function(event, context) {
   
-  if (!event.body) {
+  if (event == null) {
     return {
       statusCode: 400,
       body: JSON.stringify({ message: "No Body found" }),
