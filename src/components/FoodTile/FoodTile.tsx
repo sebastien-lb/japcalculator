@@ -90,7 +90,14 @@ const styles = (theme: CustomTheme): Record<ClassNames, CSSProperties> => ({
     }
   },
   button: {
-    color: "grey"
+    color: "grey",
+    cursor: "pointer",
+    "-webkit-touch-callout": "none", /* iOS Safari */
+    "-webkit-user-select": "none", /* Safari */
+    "-khtml-user-select": "none", /* Konqueror HTML */
+    "-moz-user-select": "none", /* Old versions of Firefox */
+    "-ms-user-select": "none", /* Internet Explorer/Edge */
+    "user-select": "none",
   },
   image: {
     height: 100
@@ -98,9 +105,9 @@ const styles = (theme: CustomTheme): Record<ClassNames, CSSProperties> => ({
   input: {
     border: "none",
     outline: "none",
-    mozAppearance: "textfield",
     width: 30,
-    textAlign: "center"
+    textAlign: "center",
+    "-moz-appearance": "textfield"
   },
   value: {
     marginLeft: theme.spacing(0.5),
