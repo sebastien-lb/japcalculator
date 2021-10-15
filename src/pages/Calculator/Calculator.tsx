@@ -4,16 +4,18 @@ import { CSSProperties } from "@material-ui/styles";
 import { CustomTheme } from "../../style/theme";
 import { Button } from "@material-ui/core";
 
+import "./foo.css";
+
 import kanjiSun from "../../assets/kanji/Kanji sun.svg";
 import kanjiBook from "../../assets/kanji/Kanji book.svg";
 
 import kanjiRight from "../../assets/kanji/Kanji-right.svg";
 import kanjiLeft from "../../assets/kanji/Kanji-left.svg";
 
+import sumo from "../../assets/images/sumo_no_bg.png";
+
 import { FOOD_ITEMS, FoodItem } from "../../data/food";
 import { FoodTile } from "../../components";
-
-import { sendData } from "../../utils/send-data";
 
 type ClassNames =
   | "container"
@@ -29,6 +31,7 @@ type ClassNames =
   | "buttonContainer"
   | "lateralBar"
   | "barSpacer";
+
 interface OwnProps {
   classes: Record<ClassNames, string>;
 }
@@ -41,6 +44,8 @@ export const CalculatorPage: React.FC<Props> = (props: Props) => {
   const [values, setValues] = useState<{
     [k in string]: { value: number; kcal: number };
   }>({});
+
+  const [showSumo, setShowSumo] = useState(false);
 
   const handleChange =
     (itemName: string, itemKcal: number) => (value: number) => {
@@ -77,7 +82,7 @@ export const CalculatorPage: React.FC<Props> = (props: Props) => {
             </div>
           </div>
           <div className={classes.buttonContainer}>
-            <Button variant="contained" onClick={sendData(result)}>
+            <Button variant="contained" onClick={() => setShowSumo(true)}>
               I'm going to be this fat: {result} Kcal
             </Button>
           </div>
@@ -92,6 +97,7 @@ export const CalculatorPage: React.FC<Props> = (props: Props) => {
       </div>
       <img className={classes.kanjiSun} src={kanjiSun} alt="kanji sun" />
       <img className={classes.kanjiBook} src={kanjiBook} alt="kanji book" />
+      <img src={sumo} className={showSumo ? "sumo sumo2" : "sumo"} alt="sumo" />
     </div>
   );
 };
