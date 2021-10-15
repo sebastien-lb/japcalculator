@@ -1,7 +1,4 @@
 exports.handler = async function(event, context) {
-  const requestBody = JSON.parse(event.body);
-  const message = requestBody.message;
-
   console.log(event);
 
   if (event.httpMethod === "OPTIONS") {
@@ -17,7 +14,21 @@ exports.handler = async function(event, context) {
     };
   }
 
-  if (message) {
+  try { 
+    const requestBody = JSON.parse(event.body);
+    const message = requestBody.message;
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ message: message }),
+    };
+  }
+  catch (error) {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({ message: "Nothing to repeat :(, please send a message" }),
+    };
+  }
+  /* if (message) {
     return {
       statusCode: 200,
       body: JSON.stringify({ message: message }),
@@ -26,5 +37,5 @@ exports.handler = async function(event, context) {
   return {
     statusCode: 400,
     body: JSON.stringify({ message: "Nothing to repeat :(" }),
-  };
+  }; */
 };
