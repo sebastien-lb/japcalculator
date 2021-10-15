@@ -33,9 +33,9 @@ jobs:
       -checkout
 
       - restore_cache:
-        keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          - v1-dependencies-
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
       
       - run: curl -o- -L https://yarnpkg.com/install.sh | bash
       - run: yarn install
