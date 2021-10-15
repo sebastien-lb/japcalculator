@@ -9,8 +9,18 @@ jobs:
     steps:
       - checkout
 
+      - restore_cache:
+          keys:
+            - deps-{{ checksum "package.json"}}
+
       - run: curl -o- -L https://yarnpkg.com/install.sh | bash
       - run: yarn install
+
+      - save_cache:
+              paths:
+                    - node_modules
+              key: deps-{{ checksum "package.json" }}
+
       - run: yarn test
       - run: yarn build
 
