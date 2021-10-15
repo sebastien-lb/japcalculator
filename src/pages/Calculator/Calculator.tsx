@@ -78,13 +78,9 @@ export const CalculatorPage: React.FC<Props> = (props: Props) => {
             </div>
           </div>
           <div className={classes.buttonContainer}>
-            <div style={{color:'#b02121'}}>{result}</div>&nbsp;Kcal
-          {
-            //<Button variant="contained" onClick={sendData(result)}>
-              //{result} Kcal
-
-            //</Button>
-          }
+            <Button variant="contained" onClick={sendData(result)}>
+              {result} Kcal
+            </Button>
           </div>
         </div>
         <div className={classes.lateralBar}>
@@ -188,8 +184,6 @@ const styles = (theme: CustomTheme): Record<ClassNames, CSSProperties> => ({
     flex: 1,
     marginBottom: theme.spacing(3),
     marginTop: theme.spacing(3),
-    fontFamily: 'Kaushan Script',
-    fontSize:40,
   },
   lateralBar: {
     display: "flex",
