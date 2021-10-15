@@ -1,33 +1,38 @@
 version: 2.1
+
 jobs:
-  build-test:
+  test-and-build:
     docker:
-      # specify the version you desire here
-      - image: circleci/node:12
+      - image: circleci/node:14
 
     steps:
       - checkout
 
-      # Download and cache dependencies
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
+            - deps-{{ checksum "package.json"}}
 
       - run: curl -o- -L https://yarnpkg.com/install.sh | bash
       - run: yarn install
 
       - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+              paths:
+                    - node_modules
+              key: deps-{{ checksum "package.json" }}
 
-      # run tests!
       - run: yarn test
       - run: yarn build
+  
+  audit:
+    docker:
+      - image: circleci/node:14
+
+    steps:
+      - checkout
+      - run: yarn audit
 
 workflows:
   node-tests:
     jobs:
-      - build-test
+      - test-and-build
+      - audit
