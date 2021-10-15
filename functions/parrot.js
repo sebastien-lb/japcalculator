@@ -1,6 +1,8 @@
 exports.handler = async function(event, context) {
   
-  if (event == null) {
+  console.log(event);
+
+  if (event.body == null) {
     return {
       statusCode: 400,
       body: JSON.stringify({ message: "No Body found" }),
@@ -9,8 +11,6 @@ exports.handler = async function(event, context) {
 
   const requestBody = JSON.parse(event.body);
   const message = requestBody.message;
-
-  console.log(event);
 
   if (event.httpMethod === "OPTIONS") {
     const headers = {
