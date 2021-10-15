@@ -201,7 +201,8 @@ const styles = (theme: CustomTheme): Record<ClassNames, CSSProperties> => ({
     flex: 1,
     marginBottom: theme.spacing(3),
     marginTop: theme.spacing(3),
-    maxWidth: "60%",
+    marginLeft: theme.spacing(5),
+    marginRight: theme.spacing(5),
   },
   lateralBar: {
     display: "flex",
