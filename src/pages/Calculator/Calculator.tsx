@@ -27,6 +27,8 @@ type ClassNames =
   | "mainFoodItems"
   | "itemContainer"
   | "buttonContainer"
+  | "primaryButton"
+  | "secondaryButton"
   | "lateralBar"
   | "barSpacer";
 interface OwnProps {
@@ -55,6 +57,8 @@ export const CalculatorPage: React.FC<Props> = (props: Props) => {
     return acc + values[itemName].kcal;
   }, 0);
 
+  const reset = () => () => { setValues({}) }
+
   return (
     <div className={classes.container}>
       <div className={classes.calculatorContainer}>
@@ -78,8 +82,11 @@ export const CalculatorPage: React.FC<Props> = (props: Props) => {
             </div>
           </div>
           <div className={classes.buttonContainer}>
-            <Button variant="contained" onClick={sendData(result)}>
+            <Button className={classes.primaryButton} variant="contained" onClick={sendData(result)}>
               {result} Kcal
+            </Button>
+            <Button className={classes.secondaryButton} variant="outlined" onClick={reset()}>
+              Reset
             </Button>
           </div>
         </div>
@@ -184,6 +191,16 @@ const styles = (theme: CustomTheme): Record<ClassNames, CSSProperties> => ({
     flex: 1,
     marginBottom: theme.spacing(3),
     marginTop: theme.spacing(3),
+  },
+  primaryButton: {
+    background:
+    "transparent linear-gradient(101deg, #F78E0D 0%, #F9C41C 100%) 0% 0% no-repeat padding-box",
+    margin: "5px"
+  },
+  secondaryButton: {
+    background: "white",
+    margin: "5px",
+    color: "#F78E0D"
   },
   lateralBar: {
     display: "flex",
