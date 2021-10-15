@@ -27,9 +27,9 @@ type ClassNames =
   | "scrollContainer"
   | "mainFoodItems"
   | "itemContainer"
-    "figureContainer"
+  | "figureContainer"
   | "buttonContainer"
-    "barContainer"
+  | "barContainer"
   | "lateralBar"
   | "barSpacer";
 interface OwnProps {
@@ -185,7 +185,18 @@ const styles = (theme: CustomTheme): Record<ClassNames, CSSProperties> => ({
     alignItems: "flex-end",
     margin: theme.spacing(5),
   },
+  figureContainer: {
+    display: "flex",
+  },
   buttonContainer: {
+    display: "flex",
+    justifyContent: "center",
+    minHeight: 36,
+    flex: 1,
+    marginBottom: theme.spacing(3),
+    marginTop: theme.spacing(3),
+  },
+  barContainer: {
     display: "flex",
     justifyContent: "center",
     minHeight: 36,
