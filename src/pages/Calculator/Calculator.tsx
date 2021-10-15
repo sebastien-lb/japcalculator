@@ -199,15 +199,6 @@ const styles = (theme: CustomTheme): Record<ClassNames, CSSProperties> => ({
   barContainer: {
     display: "flex",
     justifyContent: "center",
-    root: {
-      height: 10,
-      width: 600,
-      backgroundColor: lighten('#ff6c5c', 0.5),
-    },
-    bar: {
-      borderRadius: 20,
-      backgroundColor: '#ff6c5c',
-    },
   },
   lateralBar: {
     display: "flex",
