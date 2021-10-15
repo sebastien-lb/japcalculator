@@ -78,9 +78,10 @@ export const CalculatorPage: React.FC<Props> = (props: Props) => {
             </div>
           </div>
           <div className={classes.buttonContainer}>
-            <Button variant="contained" onClick={sendData(result)}>
+            <p>{result} Kcal</p>
+            {/* <Button variant="contained" onClick={sendData(result)}>
               {result} Kcal
-            </Button>
+            </Button> */}
           </div>
         </div>
         <div className={classes.lateralBar}>
