@@ -3,7 +3,6 @@ import { withStyles } from "@material-ui/core/styles";
 import { CSSProperties } from "@material-ui/styles";
 
 import { CustomTheme } from "../../style/theme";
-import { StepButton } from "@material-ui/core";
 
 type ClassNames =
   | "container"
