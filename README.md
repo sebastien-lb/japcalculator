@@ -3,7 +3,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Available Scripts
 
 In the project directory, you can run:
-testing netlify on new branch
+Netlify branch preview
+CircleCI test on Pull Request
 
 ### `yarn start`
 
