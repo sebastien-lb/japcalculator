@@ -38,17 +38,20 @@ type Props = OwnProps;
 export const CalculatorPage: React.FC<Props> = (props: Props) => {
   const { classes } = props;
 
-  const [values, setValues] = useState<
-    { [k in string]: { value: number; kcal: number } }
-  >({});
+  const [values, setValues] = useState<{
+    [k in string]: { value: number; kcal: number };
+  }>({});
 
-  const handleChange = (itemName: string, itemKcal: number) => (
-    value: number
-  ) => {
-    setValues({
-      ...values,
-      [itemName]: { value, kcal: value * itemKcal },
-    });
+  const handleChange =
+    (itemName: string, itemKcal: number) => (value: number) => {
+      setValues({
+        ...values,
+        [itemName]: { value, kcal: value * itemKcal },
+      });
+    };
+
+  const resetValues = () => {
+    setValues({});
   };
 
   const result = Object.keys(values).reduce((acc: number, itemName: string) => {
@@ -80,6 +83,9 @@ export const CalculatorPage: React.FC<Props> = (props: Props) => {
           <div className={classes.buttonContainer}>
             <Button variant="contained" onClick={sendData(result)}>
               {result} Kcal
+            </Button>
+            <Button variant="contained" onClick={resetValues}>
+              Remettre à zéro
             </Button>
           </div>
         </div>
@@ -184,6 +190,7 @@ const styles = (theme: CustomTheme): Record<ClassNames, CSSProperties> => ({
     flex: 1,
     marginBottom: theme.spacing(3),
     marginTop: theme.spacing(3),
+    columnGap: "1em",
   },
   lateralBar: {
     display: "flex",
