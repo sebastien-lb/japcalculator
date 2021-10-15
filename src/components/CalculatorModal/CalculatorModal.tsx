@@ -68,8 +68,7 @@ export const CalculatorModal: React.FC<Props> = (props: Props) => {
           ))}
         </div>
         <div className={classes.buttonContainer}>
-          {/* <p>{result} Kcal !</p> */}
-          {/* <Button variant="contained">{result} Kcal !</Button> */}
+          <Button variant="contained">{result} Kcal !</Button>
         </div>
       </DialogContent>
     </Dialog>
