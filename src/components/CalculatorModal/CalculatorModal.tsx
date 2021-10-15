@@ -65,7 +65,10 @@ export const CalculatorModal: React.FC<Props> = (props: Props) => {
           ))}
         </div>
         <div className={classes.buttonContainer}>
-          <Button onClick={() => alert()} variant="contained">
+          <Button
+            onClick={() => console.error("klklklklk")}
+            variant="contained"
+          >
             {result} Kcal
           </Button>
         </div>
