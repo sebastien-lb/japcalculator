@@ -81,9 +81,9 @@ export const CalculatorPage: React.FC<Props> = (props: Props) => {
             <div style={{color:'#b02121'}}>{result}</div>&nbsp;Kcal
           {
             //<Button variant="contained" onClick={sendData(result)}>
-              //{result} Kcal
-
-            //</Button>
+            //   {result} Kcal
+            //
+            // </Button>
           }
           </div>
         </div>
@@ -189,7 +189,7 @@ const styles = (theme: CustomTheme): Record<ClassNames, CSSProperties> => ({
     marginBottom: theme.spacing(3),
     marginTop: theme.spacing(3),
     fontFamily: 'Kaushan Script',
-    fontSize:40,
+    fontSize:50,
   },
   lateralBar: {
     display: "flex",
