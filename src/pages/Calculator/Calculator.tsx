@@ -3,6 +3,7 @@ import { withStyles } from "@material-ui/core/styles";
 import { CSSProperties } from "@material-ui/styles";
 import { CustomTheme } from "../../style/theme";
 import { Button } from "@material-ui/core";
+import { LinearProgress } from '@mui/material';
 
 import kanjiSun from "../../assets/kanji/Kanji sun.svg";
 import kanjiBook from "../../assets/kanji/Kanji book.svg";
@@ -26,7 +27,9 @@ type ClassNames =
   | "scrollContainer"
   | "mainFoodItems"
   | "itemContainer"
+    "figureContainer"
   | "buttonContainer"
+    "barContainer"
   | "lateralBar"
   | "barSpacer";
 interface OwnProps {
@@ -77,10 +80,15 @@ export const CalculatorPage: React.FC<Props> = (props: Props) => {
               ))}
             </div>
           </div>
-          <div className={classes.buttonContainer}>
-            <Button variant="contained" onClick={sendData(result)}>
-              {result} Kcal
-            </Button>
+          <div className={classes.figureContainer}>
+            <div className={classes.buttonContainer}>
+              <Button variant="contained" onClick={sendData(result)}>
+                {result} Kcal
+              </Button>
+            </div>
+            <div className={classes.barContainer}>
+              < LinearProgress value={60} />
+            </div>
           </div>
         </div>
         <div className={classes.lateralBar}>
