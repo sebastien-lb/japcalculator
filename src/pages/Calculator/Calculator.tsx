@@ -86,7 +86,7 @@ export const CalculatorPage: React.FC<Props> = (props: Props) => {
                 {result} Kcal
               </Button>
             </div>
-            < LinearProgressWithLabel className={classes.barContainer} variant="determinate" color="secondary" value={result} />
+            < LinearProgressWithLabel className={classes.barContainer} variant="determinate" color="secondary" value={result/700*100} />
           </div>
         </div>
         <div className={classes.lateralBar}>
