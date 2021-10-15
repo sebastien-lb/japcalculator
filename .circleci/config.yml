@@ -30,7 +30,7 @@ jobs:
     docker:
       - image: circleci/node:12
     steps:
-      -checkout
+      - checkout
 
       - restore_cache:
           keys:
