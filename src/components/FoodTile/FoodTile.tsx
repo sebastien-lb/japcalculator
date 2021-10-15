@@ -90,7 +90,11 @@ const styles = (theme: CustomTheme): Record<ClassNames, CSSProperties> => ({
     }
   },
   button: {
-    color: "grey"
+    color: "grey",
+    cursor: "pointer",
+    "box-shadow":  "0px 0px 2px black",
+    padding: "0px 5px",
+    margin: "5px"
   },
   image: {
     height: 100
