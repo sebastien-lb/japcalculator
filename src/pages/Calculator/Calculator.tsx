@@ -199,6 +199,10 @@ const styles = (theme: CustomTheme): Record<ClassNames, CSSProperties> => ({
   barContainer: {
     display: "flex",
     justifyContent: "center",
+    minHeight: 36,
+    flex: 1,
+    marginBottom: theme.spacing(3),
+    marginTop: theme.spacing(3),
   },
   lateralBar: {
     display: "flex",
