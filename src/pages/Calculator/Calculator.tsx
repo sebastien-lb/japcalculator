@@ -198,4 +198,5 @@ const styles = (theme: CustomTheme): Record<ClassNames, CSSProperties> => ({
   },
 });
 
+
 export default withStyles(styles)(CalculatorPage);
