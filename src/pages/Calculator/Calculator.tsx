@@ -38,18 +38,17 @@ type Props = OwnProps;
 export const CalculatorPage: React.FC<Props> = (props: Props) => {
   const { classes } = props;
 
-  const [values, setValues] = useState<
-    { [k in string]: { value: number; kcal: number } }
-  >({});
+  const [values, setValues] = useState<{
+    [k in string]: { value: number; kcal: number };
+  }>({});
 
-  const handleChange = (itemName: string, itemKcal: number) => (
-    value: number
-  ) => {
-    setValues({
-      ...values,
-      [itemName]: { value, kcal: value * itemKcal },
-    });
-  };
+  const handleChange =
+    (itemName: string, itemKcal: number) => (value: number) => {
+      setValues({
+        ...values,
+        [itemName]: { value, kcal: value * itemKcal },
+      });
+    };
 
   const result = Object.keys(values).reduce((acc: number, itemName: string) => {
     return acc + values[itemName].kcal;
@@ -79,7 +78,7 @@ export const CalculatorPage: React.FC<Props> = (props: Props) => {
           </div>
           <div className={classes.buttonContainer}>
             <Button variant="contained" onClick={sendData(result)}>
-              {result} Kcal
+              I'm going to be this fat: {result} Kcal
             </Button>
           </div>
         </div>
