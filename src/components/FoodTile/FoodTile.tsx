@@ -26,12 +26,15 @@ type Props = OwnProps;
 export const FoodTile: React.FC<Props> = (props: Props) => {
   const { classes, imgSrc, name, value, onChange } = props;
 
+  var nb_objects = 0;
+
   const handleChange = (value: number) => () => {
     if (value < 0) {
       value = 0;
     }
     if (onChange) {
-      onChange(value);
+      nb_objects = value;
+      // onChange(value);
     }
   };
 
@@ -50,12 +53,15 @@ export const FoodTile: React.FC<Props> = (props: Props) => {
             -
           </span>
           {/* <span className={classes.value}>{value || 0}</span> */}
-          <input
+          <span className={classes.value}>
+            {nb_objects}
+          </span>
+          {/* <input
             value={value}
             onChange={handleInputChange}
             type="number"
             className={classes.input}
-          />
+          /> */}
           <span className={classes.button} onClick={handleChange(value + 1)}>
             +
           </span>
