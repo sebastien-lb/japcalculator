@@ -87,7 +87,7 @@ export const CalculatorPage: React.FC<Props> = (props: Props) => {
               </Button>
             </div>
             <div className={classes.barContainer}>
-              < LinearProgress value={60} />
+              < LinearProgress variant="determinate" color="secondary" value={50} />
             </div>
           </div>
         </div>
@@ -199,6 +199,15 @@ const styles = (theme: CustomTheme): Record<ClassNames, CSSProperties> => ({
   barContainer: {
     display: "flex",
     justifyContent: "center",
+    root: {
+      height: 10,
+      width: 600,
+      backgroundColor: lighten('#ff6c5c', 0.5),
+    },
+    bar: {
+      borderRadius: 20,
+      backgroundColor: '#ff6c5c',
+    },
   },
   lateralBar: {
     display: "flex",
