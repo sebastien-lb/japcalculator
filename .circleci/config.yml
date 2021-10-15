@@ -5,6 +5,22 @@ jobs:
       # specify the version you desire here
       - image: circleci/node:12
 
+    eslint:
+    parameters:
+      wd:
+        type: string
+        default: ~/project
+      files:
+        type: string
+        default: lib/**
+      executor:
+        type: executor
+        default: v12
+      config:
+        description: "Any additional configuration steps."
+        type: steps
+        default: []
+
     steps:
       - checkout
 
