@@ -26,21 +26,18 @@ type Props = OwnProps;
 export const FoodTile: React.FC<Props> = (props: Props) => {
   const { classes, imgSrc, name, value, onChange } = props;
 
-  var nb_objects = 0;
-
   const handleChange = (value: number) => () => {
     if (value < 0) {
       value = 0;
     }
     if (onChange) {
-      nb_objects = value;
-      // onChange(value);
+      onChange(value);
     }
   };
 
-  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-    handleChange(Number(event.target.value))();
-  };
+  // const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+  //   handleChange(Number(event.target.value))();
+  // };
 
   return (
     <div className={classes.container}>
@@ -54,7 +51,7 @@ export const FoodTile: React.FC<Props> = (props: Props) => {
           </span>
           {/* <span className={classes.value}>{value || 0}</span> */}
           <span className={classes.value}>
-            {nb_objects}
+            {value}
           </span>
           {/* <input
             value={value}
@@ -96,7 +93,8 @@ const styles = (theme: CustomTheme): Record<ClassNames, CSSProperties> => ({
     }
   },
   button: {
-    color: "grey"
+    color: "grey",
+    cursor: "pointer"
   },
   image: {
     height: 100
