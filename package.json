@@ -54,5 +54,7 @@
   "devDependencies": {
     "@types/history": "^4.7.5",
     "@types/react-redux": "^7.1.7"
-  }
+  },
+  "packageManager": "yarn@3.0.2"
+  
 }
