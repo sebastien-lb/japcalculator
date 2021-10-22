@@ -16,7 +16,7 @@
     "axios": "^0.19.2",
     "connected-react-router": "^6.8.0",
     "encoding": "^0.1.13",
-    "faunadb": "^3.0.1",
+    "faunadb": "^4.4.1",
     "history": "^4.10.1",
     "netlify-lambda": "^2.0.1",
     "react": "^16.12.0",
