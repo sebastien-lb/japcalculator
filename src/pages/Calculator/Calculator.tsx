@@ -119,7 +119,7 @@ const styles = (theme: CustomTheme): Record<ClassNames, CSSProperties> => ({
     height: "calc(100vh - 40px)",
     width: "calc(100vh - 40px)",
     borderRadius: "50%",
-    backgroundColor: "#BF2424",
+    backgroundColor: "#4336F4",
   },
   kanjiSun: {
     position: "absolute",
