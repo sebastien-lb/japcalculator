@@ -1,17 +1,15 @@
+import { FOOD_ITEMS, FoodItem } from "../../data/food";
 import React, { useState } from "react";
-import { withStyles } from "@material-ui/core/styles";
+
+import { Button } from "@material-ui/core";
 import { CSSProperties } from "@material-ui/styles";
+import CloseIcon from "@material-ui/icons/Close";
+import { CustomTheme } from "../../style/theme";
 import Dialog from "@material-ui/core/Dialog";
 import DialogContent from "@material-ui/core/DialogContent";
-import IconButton from "@material-ui/core/IconButton";
-import CloseIcon from "@material-ui/icons/Close";
-
-import { CustomTheme } from "../../style/theme";
-import { Button } from "@material-ui/core";
-
 import { default as FoodTile } from "../FoodTile/FoodTile";
-
-import { FOOD_ITEMS, FoodItem } from "../../data/food";
+import IconButton from "@material-ui/core/IconButton";
+import { withStyles } from "@material-ui/core/styles";
 
 type ClassNames =
   | "container"
@@ -30,18 +28,17 @@ type Props = OwnProps;
 export const CalculatorModal: React.FC<Props> = (props: Props) => {
   const { classes, onClose, open } = props;
 
-  const [values, setValues] = useState<
-    { [k in string]: { value: number; kcal: number } }
-  >({});
+  const [values, setValues] = useState<{
+    [k in string]: { value: number; kcal: number };
+  }>({});
 
-  const handleChange = (itemName: string, itemKcal: number) => (
-    value: number
-  ) => {
-    setValues({
-      ...values,
-      [itemName]: { value, kcal: value * itemKcal }
-    });
-  };
+  const handleChange =
+    (itemName: string, itemKcal: number) => (value: number) => {
+      setValues({
+        ...values,
+        [itemName]: { value, kcal: value * itemKcal },
+      });
+    };
 
   const result = Object.keys(values).reduce((acc: number, itemName: string) => {
     return acc + values[itemName].kcal;
@@ -68,7 +65,12 @@ export const CalculatorModal: React.FC<Props> = (props: Props) => {
           ))}
         </div>
         <div className={classes.buttonContainer}>
-          <Button variant="contained">{result} Kcal</Button>
+          <Button
+            onClick={() => console.error("klklklklk")}
+            variant="contained"
+          >
+            {result} Kcal
+          </Button>
         </div>
       </DialogContent>
     </Dialog>
@@ -80,22 +82,22 @@ const styles = (theme: CustomTheme): Record<ClassNames, CSSProperties> => ({
   mainFoodItems: {
     display: "flex",
     flexWrap: "wrap",
-    justifyContent: "space-evenly"
+    justifyContent: "space-evenly",
   },
   closeContainer: {
     display: "flex",
-    justifyContent: "flex-end"
+    justifyContent: "flex-end",
   },
   itemContainer: {
     display: "flex",
     alignItems: "flex-end",
-    margin: theme.spacing(5)
+    margin: theme.spacing(5),
   },
   buttonContainer: {
     display: "flex",
     justifyContent: "center",
-    marginBottom: theme.spacing(3)
-  }
+    marginBottom: theme.spacing(3),
+  },
 });
 
 export default withStyles(styles)(CalculatorModal);

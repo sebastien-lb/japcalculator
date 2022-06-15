@@ -1,14 +1,28 @@
+import "./index.css";
+
+import * as Sentry from "@sentry/react";
+import * as serviceWorker from "./serviceWorker";
+
+import App from "./App";
+import { ConnectedRouter } from "connected-react-router";
+import { Integrations } from "@sentry/tracing";
+import { Provider } from "react-redux";
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
-import * as serviceWorker from "./serviceWorker";
-import { Provider } from "react-redux";
-import { ConnectedRouter } from "connected-react-router";
 import ThemeProvider from "@material-ui/styles/ThemeProvider";
-import { store } from "./redux/config";
 import { history } from "./redux/Router/router";
+import { store } from "./redux/config";
 import { theme } from "./style/theme";
+
+Sentry.init({
+  dsn: "https://ab482aa399a24337b08ecd7b095a5c7e@o1040153.ingest.sentry.io/6009070",
+  integrations: [new Integrations.BrowserTracing()],
+
+  // Set tracesSampleRate to 1.0 to capture 100%
+  // of transactions for performance monitoring.
+  // We recommend adjusting this value in production
+  tracesSampleRate: 1.0,
+});
 
 ReactDOM.render(
   <Provider store={store}>
