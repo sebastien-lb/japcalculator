@@ -23,6 +23,7 @@ interface OwnProps {
 
 type Props = OwnProps;
 
+
 export const FoodTile: React.FC<Props> = (props: Props) => {
   const { classes, imgSrc, name, value, onChange } = props;
 
@@ -39,6 +40,15 @@ export const FoodTile: React.FC<Props> = (props: Props) => {
     handleChange(Number(event.target.value))();
   };
 
+  const setCursor = (bool : boolean) => {
+    if (bool){
+      return(<style>cursor:'crosshair'</style>)
+    }
+    else{
+
+    }
+  }
+
   return (
     <div className={classes.container}>
       <img src={imgSrc} alt={name} className={classes.image} />
@@ -46,7 +56,7 @@ export const FoodTile: React.FC<Props> = (props: Props) => {
         <span className={classes.name}>{name}</span>
 
         <div className={classes.controls}>
-          <span className={classes.button} onClick={handleChange(value - 1)}>
+          <span className={classes.button} onClick={handleChange(value - 1)} onMouseEnter={()=>setCursor(true)} onMouseLeave={()=>setCursor(false)}>
             -
           </span>
           {/* <span className={classes.value}>{value || 0}</span> */}
@@ -56,7 +66,7 @@ export const FoodTile: React.FC<Props> = (props: Props) => {
             type="number"
             className={classes.input}
           />
-          <span className={classes.button} onClick={handleChange(value + 1)}>
+          <span className={classes.button} onClick={handleChange(value + 1)} onMouseEnter={()=>setCursor(true)} onMouseLeave={()=>setCursor(false)}>
             +
           </span>
         </div>
@@ -105,7 +115,7 @@ const styles = (theme: CustomTheme): Record<ClassNames, CSSProperties> => ({
   value: {
     marginLeft: theme.spacing(0.5),
     marginRight: theme.spacing(0.5)
-  }
+  } 
 });
 
 export default withStyles(styles)(FoodTile);
